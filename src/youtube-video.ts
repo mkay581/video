@@ -137,6 +137,12 @@ export class YoutubeVideoElement extends HTMLElement {
         }
     }
 
+    setVolume(n: number) {
+        if (this.ytPlayer) {
+            this.ytPlayer.setVolume(n);
+        }
+    }
+
     createYTPlayerElement() {
         return document.createElement('div');
     }
