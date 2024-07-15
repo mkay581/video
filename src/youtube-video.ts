@@ -139,7 +139,7 @@ export class YoutubeVideoElement extends HTMLElement {
 
     getVolume(){
         if (this.ytPlayer) {
-            this.ytPlayer.getVolume());
+            this.ytPlayer.getVolume();
         }
     }
 
