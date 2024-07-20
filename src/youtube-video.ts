@@ -76,7 +76,7 @@ export class YoutubeVideoElement extends HTMLElement {
     }
 
     get controls(): boolean {
-        return this.hasAttribute('controls') || true;
+        return this.hasAttribute('controls');
     }
 
     get ytPlayerVars(): YT.PlayerVars {
@@ -120,6 +120,10 @@ export class YoutubeVideoElement extends HTMLElement {
         return this.src.replace(re, '$1');
     }
 
+    getPlayer(){
+        return this.ytPlayer
+    }
+
     play() {
         this.paused = false;
         if (!this.src) {
@@ -134,6 +138,24 @@ export class YoutubeVideoElement extends HTMLElement {
     pause() {
         if (this.ytPlayer) {
             this.ytPlayer.pauseVideo();
+        }
+    }
+
+    getVolume(){
+        return this.ytPlayer && this.ytPlayer.getVolume();
+    }
+
+    seekTo(seconds, allowSeekAhead){
+        this.ytPlayer && this.ytPlayer.seekTo(seconds, allowSeekAhead)
+    }
+
+    getCurrentTime(){
+        return this.ytPlayer && this.ytPlayer.getCurrentTime()
+    }
+
+    setVolume(n: number) {
+        if (this.ytPlayer) {
+            this.ytPlayer.setVolume(n);
         }
     }
 
