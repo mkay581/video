@@ -120,6 +120,10 @@ export class YoutubeVideoElement extends HTMLElement {
         return this.src.replace(re, '$1');
     }
 
+    getPlayer(){
+        return this.ytPlayer
+    }
+
     play() {
         this.paused = false;
         if (!this.src) {
