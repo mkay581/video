@@ -137,11 +137,17 @@ export class YoutubeVideoElement extends HTMLElement {
         }
     }
 
-    // getVolume(){
-    //     if (this.ytPlayer) {
-    //         this.ytPlayer.getVolume();
-    //     }
-    // }
+    getVolume(){
+        return this.ytPlayer && this.ytPlayer.getVolume();
+    }
+
+    seekTo(seconds, allowSeekAhead){
+        this.ytPlayer && this.ytPlayer.seekTo(seconds, allowSeekAhead)
+    }
+
+    getCurrentTime(){
+        return this.ytPlayer && this.ytPlayer.getCurrentTime()
+    }
 
     setVolume(n: number) {
         if (this.ytPlayer) {
